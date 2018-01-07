@@ -1,0 +1,50 @@
+Comparing strength of draught players from different regions in the Netherlands
+============================================================
+author: G. Hol
+date: January 7, 2018
+autosize: true
+
+What is draughts?
+============================================================
+Draughts is a board game for two players <https://en.wikipedia.org/wiki/Draughts>.
+
+![Picture of draughts boards](dambord.png)
+
+Each player's strength is indicated with a rating <https://en.wikipedia.org/wiki/Elo_rating_system>
+
+The aim of the Shiny app is to compare the ratings from different regions in the Netherlands
+
+How does it look? 
+========================================================
+(figure on the next slide) 
+The main code for the figure :
+
+
+```r
+hist(mydata1,main = "Density plot of draught ratings in two dutch provinces", xlab = "Ratings", freq = FALSE,col = rgb(0,0,1,0),border="white",prob = TRUE)
+hist(mydata2, col = rgb(1,0,0,0),border="white",add = TRUE)
+abline(v=1000, col=rgb(0,0,1,1), lwd=2)
+abline(v=1050, col=rgb(1,0,0,1), lwd=2)
+lines(density(mydata1), col=rgb(0,0,1,1), lwd=2, lty=2)
+lines(density(mydata2), col=rgb(1,0,0,1), lwd=2, lty=2)
+legend(x = "topright", c("Median Province1","Median Province2", "Density Province1", "Density Province2"), col = c(rgb(0,0,1,1), rgb(1,0,0,1),rgb(0,0,1,1), rgb(1,0,0,1)),lwd = c(2, 2, 2,2), lty=c(1,1,2,2), bty = "n")
+```
+
+
+Example of the main figure
+========================================================
+
+![plot of chunk hist2](mypitch-figure/hist2-1.png)
+
+How was it made?
+========================================================
+
+- The data was obtained from the KNDB, using the ratings from July 2017.
+
+- R 3.4.3
+- R Studio 1.0.143 
+- libraries Shiny en dplyr
+- Rpubs <http://rpubs.com/gerah/347437>
+Go to the app : <https://nextgemdemo.shinyapps.io/damapp/>
+
+*Have fun!*
